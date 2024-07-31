@@ -1,12 +1,12 @@
 export const JOB_STATUS = {
     PENDING: 'pending',
-    INTERVIEW: 'interview',
+    INTERVIEW: 'interviews',
     DECLINED: 'declined',
 }
 export const JOB_TYPE = {
     FULL_TIME: 'full-time',
     PART_TIME: 'part-time',
-    INTERNISHIP: ' interniship'
+    INTERNISHIP: 'internship'
 }
 export const JOB_SORT_BY = {
     NEWEST_FIRST: 'newest',

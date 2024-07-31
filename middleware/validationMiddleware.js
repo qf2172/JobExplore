@@ -50,7 +50,7 @@ export const validateIdParam = withValidationErrors(
                 throw new NotFoundError(`no job with id ${value}`)
             }
             const isAdmin = req.user.role === 'admin'
-            const isOwner = req.user.userId === job.createdBy.createFromHexString()
+            const isOwner = req.user.userId === job.createdBy.toString();
             if(!isAdmin && !isOwner) {
                 throw new UnauthenticatedError('not authorized to access the route')
             }
