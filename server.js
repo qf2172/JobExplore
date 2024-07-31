@@ -25,7 +25,7 @@ import { dirname } from 'path'
 import { fileURLToPath } from 'url'
 import path from 'path'
 const __dirname = dirname(fileURLToPath(import.meta.url))
-app.use(express.static(path.resolve(__dirname, './public')))
+app.use(express.static(path.resolve(__dirname, './client/dist')))
 
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'))
@@ -41,7 +41,7 @@ app.get('/api/v1/test', (req, res) => {
   app.use('/api/v1/auth', authRouter) // public router, let all the user do that
   app.use('/api/v1/users', authenticateUser, userRouter )
   app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './public', 'index.html'))
+    res.sendFile(path.resolve(__dirname, './client/dist', 'index.html'))
   })
 
   app.use('*', (req, res) => {
