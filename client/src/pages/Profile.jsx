@@ -8,10 +8,12 @@ import customFetch from '../utils/customFetch'
 export const action = async({request}) => {
   const formData = await request.formData()
   const file = formData.get('avatar')
+  console.log(file)
   if (file && file.size > 500000) {
     toast.error('Image size too large')
     return null
   }
+  console.log(formData)
 
   try {
     await customFetch.patch('/users/update-user', formData)

@@ -16,13 +16,12 @@ import path from 'path'
 const storage = multer.memoryStorage()
 
 const upload = multer({ storage })
+
 const parser = new DataParser()
+
 export const formatImage = (file) => {
     console.log("file:",file)
     const fileExtension = path.extname(file.originalname).toString()
-    console.log(fileExtension)
-    const content1 = parser.format(fileExtension, file.buffer).content
-    console.log(content1)
-    return content1
+    return parser.format(fileExtension, file.buffer).content
 }
 export default upload
